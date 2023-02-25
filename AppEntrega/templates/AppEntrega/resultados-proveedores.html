@@ -1,0 +1,22 @@
+{% extends 'AppEntrega\inicio_padre.html' %}
+{% block banner %}
+<h1 class="services_taital_proveedores"> Sector de administración de <span style="color: #0c426e">Proveedores</span></h1>
+<h2 class="banner_text" style="text-align: center"><p></p>Aqui podra consultar nuestras bases de datos y registrar nuevos proveedores </p></h2>
+
+<div class="col-md-6">
+    <h2>Usted esta buscando al proveedor "{{ empresa }}"</h2>
+    {% if proveedor %}
+    <ul>
+        {% for proveedor in proveedor %}
+        <li> Razón social: "{{proveedor.empresa}}" - CUIT: {{proveedor.cuit}} - Loc.: {{proveedor.localidad}}</li>
+        {% endfor %}
+
+    </ul>
+    {% endif %}
+   
+
+    </form>
+</div>
+<div class="seemore_bt"><a href="{% url 'proveedores' %}">Volver al menú</a>
+</div>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'AppEntrega\inicio_padre.html' %}
+{% block banner %}
+<h1 class="services_taital_proveedores"> Sector de administración de <span style="color: #0c426e">Vendedores</span></h1>
+<h2 class="banner_text" style="text-align: center"> <p></p>Aqui podra consultar nuestras bases de datos y registrar nuevos Vendedores </p></h2>
+
+<div class="col-md-6">
+    <h2>Usted esta buscando al vendedor "{{ nombre }}"</h2>
+    {% if vendedor %}
+    <ul>
+        {% for vendedor in vendedor %}
+        <li> Nombre: {{vendedor.nombre}} - DNI: {{vendedor.dni}} - Activo? {{vendedor.activo_actualmente}}</li>
+        {% endfor %}
+
+    </ul>
+    {% endif %}
+   
+
+    </form>
+</div>
+<div class="seemore_bt"><a href="{% url 'vendedores' %}">Volver al menú</a>
+</div>
+{% endblock %}

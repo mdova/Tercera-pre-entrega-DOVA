@@ -1,0 +1,20 @@
+{% extends 'AppEntrega\inicio_padre.html' %}
+{% block banner %}
+<h1 class="services_taital_proveedores"> Sector de administración de <span style="color: #0c426e">Productos</span></h1>
+<h2 class="banner_text" style="text-align: center"> <p></p>Aqui podra consultar nuestras bases de datos y registrar nuevos productos </p></h2>
+
+<div class="col-md-6">
+    <h2>Usted esta buscando al producto "{{ SKU }}"</h2>
+    {% if producto %}
+    <ul>
+        {% for producto in producto %}
+        <li> SKU: {{producto.sku}} - {{producto.descripcion}} - Actualización: {{producto.fecha_de_carga}} - En stock? {{producto.disponibilidad}}</li>
+        {% endfor %}
+
+    </ul>
+    {% endif %}
+    </form>
+</div>
+<div class="seemore_bt"><a href="{% url 'proveedores' %}">Volver al menú</a>
+</div>
+{% endblock %}

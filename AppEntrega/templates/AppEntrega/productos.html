@@ -1,0 +1,29 @@
+{% extends 'AppEntrega\inicio_padre.html' %}
+{% block banner %}
+<h1 class="services_taital_proveedores"> Sector de administración de <span style="color: #0c426e">Productos</span></h1>
+<h2 class="banner_text" style="text-align: center"> <p></p>Aqui podra consultar nuestras bases de datos y registrar nuevos productos </p></h2>
+
+<div class="row">
+    <div class="col-lg-6 col-sm-6">
+        <h2 style="font-weight: bold">Registro</h2>
+        <form action="{% url 'productos' %}" method ='POST'>
+            {% csrf_token %}
+        
+                <table>
+                    {{ formulario_productos.as_table }}
+                </table>
+                <input type="submit" value="Enviar">
+        
+            </form>
+    </div>
+    <div class="col-lg-6 col-sm-6" style="text-align: center">
+        <h2 style="font-weight: bold">Busqueda por SKU</h2>
+        <form action="{% url 'resultados-productos' %}" method ='GET'>
+            {% csrf_token %}
+                <input type="search" name="SKU" id="SKU">
+                <input type="submit" value="Buscar">
+
+        </form>
+    </div>
+</div>
+{% endblock %}
